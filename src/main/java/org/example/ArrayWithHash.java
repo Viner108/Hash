@@ -107,37 +107,19 @@ public class ArrayWithHash {
         int j=1;
         if (array.length >= hash.length) {
             for (i = 0; i < array.length; i++) {
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 0) {
-                    hash[i] = 9;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 1) {
-                    hash[i] = 8;
-                }
-                if (i< hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 2) {
-                    hash[i] = 7;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 3) {
-                    hash[i] = 6;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 4) {
-                    hash[i] = 5;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 5) {
-                    hash[i] = 4;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 6) {
-                    hash[i] = 3;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 7) {
-                    hash[i] = 2;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 8) {
-                    hash[i] = 1;
-                }
-                if (i < hash.length-1 &&(array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 9) {
-                    hash[i] = 0;
-                }
-                if(i>=hash.length-1&&j<hash.length){
+            if(i<hash.length) {
+                condition(array, hash, i, 0, 9);
+                condition(array, hash, i, 1, 8);
+                condition(array, hash, i, 2, 7);
+                condition(array, hash, i, 3, 6);
+                condition(array, hash, i, 4, 5);
+                condition(array, hash, i, 5, 4);
+                condition(array, hash, i, 6, 3);
+                condition(array, hash, i, 7, 2);
+                condition(array, hash, i, 8, 1);
+                condition(array, hash, i, 9, 0);
+            }
+            if(i>=hash.length&&j<hash.length){
                     hash[j] = hash[j - 1]+getSum(hash)+getSum(array)+getMultiplication(hash)+getMultiplication(array);
                     j++;
                 }
@@ -145,37 +127,19 @@ public class ArrayWithHash {
         }
         if (array.length < hash.length) {
             for (i = 0; i < hash.length; i++) {
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 0)) {
-                    hash[i] = 0;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 1)) {
-                    hash[i] = 1;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 2)) {
-                    hash[i] = 2;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 3)) {
-                    hash[i] = 3;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 4)) {
-                    hash[i] = 4;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 5)) {
-                    hash[i] = 5;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 6)) {
-                    hash[i] = 6;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 7)) {
-                    hash[i] = 7;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 8)) {
-                    hash[i] = 8;
-                }
-                if (i < array.length - 1 && ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == 9)) {
-                    hash[i] = 9;
-                }
-                if (i >= array.length - 1) {
+            if(i<array.length-1){
+                condition(array,hash,i,0,0);
+                condition(array,hash,i,1,1);
+                condition(array,hash,i,2,2);
+                condition(array,hash,i,3,3);
+                condition(array,hash,i,4,4);
+                condition(array,hash,i,5,5);
+                condition(array,hash,i,6,6);
+                condition(array,hash,i,7,7);
+                condition(array,hash,i,8,8);
+                condition(array,hash,i,9,9);
+            }
+                if (i >= array.length-1) {
                     for (; i < array.length; i++) {
                         for (j = i + 1; j < hash.length; j++) {
                             hash[j] = (hash[j - 1] + array[i] * i + array[array.length - 1]) % hash.length + j * array.length % array[i];
@@ -188,6 +152,12 @@ public class ArrayWithHash {
             }
         }
         return hash;
+    }
+
+    private static void condition(int[] array, int[] hash, int i, int i2, int i3) {
+        if ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == i2) {
+            hash[i] = i3+getMultiplication(array)/getSum(array);
+        }
     }
 
     public static int getSum(int[] array) {
