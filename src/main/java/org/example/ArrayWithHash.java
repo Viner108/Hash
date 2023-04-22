@@ -82,7 +82,7 @@ public class ArrayWithHash {
     }
     public static void testGetHash4(){
         int[] array = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-        int[] hash = new int[8];
+        int[] hash = new int[15];
         getHash(array, hash);
         printLines(hash);
         System.out.println("Completed");
@@ -104,7 +104,7 @@ public class ArrayWithHash {
 
     public static int[] getHash(int[] array, int[] hash) {
         int i;
-        int j=1;
+        int j=0;
         if (array.length >= hash.length) {
             for (i = 0; i < array.length; i++) {
             if(i<hash.length) {
@@ -120,7 +120,7 @@ public class ArrayWithHash {
                 condition(array, hash, i, 9, 0);
             }
             if(i>=hash.length&&j<hash.length){
-                    hash[j] = hash[j - 1]+getSum(hash)+getSum(array)+getMultiplication(hash)+getMultiplication(array);
+                    hash[j] = hash[j]+array[i]+getSum(hash)+getSum(array)+getMultiplication(hash)+getMultiplication(array);
                     j++;
                 }
             }
@@ -141,11 +141,11 @@ public class ArrayWithHash {
             }
                 if (i >= array.length-1) {
                     for (; i < array.length; i++) {
-                        for (j = i + 1; j < hash.length; j++) {
-                            hash[j] = (hash[j - 1] + array[i] * i + array[array.length - 1]) % hash.length + j * array.length % array[i];
+                        for (j = i; j < hash.length; j++) {
+                            hash[j] = (hash[j] + array[i] * i + array[array.length - 1]) * hash.length + j * array.length * array[i];
                         }
                         if (array.length == 1) {
-                            hash[i] = hash[hash.length - 1] % hash.length;
+                            hash[i] = hash[hash.length - 1] * hash.length+getSum(array)+getMultiplication(array)+array[i];
                         }
                     }
                 }
@@ -156,7 +156,7 @@ public class ArrayWithHash {
 
     private static void condition(int[] array, int[] hash, int i, int i2, int i3) {
         if ((array[i] * i + array[i + 1] * (i + 1) - array[array.length - 1] + getSum(array)+getMultiplication(array)) % hash.length == i2) {
-            hash[i] = i3+getMultiplication(array)/getSum(array);
+            hash[i] = i3+getMultiplication(array)*getSum(array);
         }
     }
 
